@@ -17,7 +17,7 @@
 			firstColor: String,
 			secondColor: String,
 			brand: String,
-			firstNumber: Number,
+			firstNumber: String,
 			secondNumber: String
 		}
 	}

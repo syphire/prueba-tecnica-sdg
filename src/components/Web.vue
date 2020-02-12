@@ -24,13 +24,13 @@
       </div>
     </div>
     <div id="wrap-square">
-      <Square firstColor="green" secondColor="red" brand="KAN" firstNumber="0" secondNumber="55.1%" />
+      <Square id="first" firstColor="green" secondColor="red" brand="KAN" firstNumber="0" secondNumber="55.1%" />
 
-      <Square firstColor="green" secondColor="yellow" brand="BMW" firstNumber="0" secondNumber="86.7%" />
+      <Square id="second" firstColor="green" secondColor="yellow" brand="BMW" firstNumber="0" secondNumber="86.7%" />
 
-      <Square firstColor="red" secondColor="green" brand="BRN" firstNumber="2" secondNumber="97.4%" />
+      <Square id="third" firstColor="red" secondColor="green" brand="BRN" firstNumber="2" secondNumber="97.4%" />
       
-      <Square firstColor="red" secondColor="yellow" brand="BRN" firstNumber="2" secondNumber="86.4%" />  
+      <Square id="fourth" firstColor="red" secondColor="yellow" brand="BRN" firstNumber="2" secondNumber="86.4%" />  
     </div>
   </div>
   </body>
@@ -39,11 +39,105 @@
 
 <script>
   import Square from './Square.vue'
+  //import LeaderLine from '../assets/leader-line.min.js'
 
   export default {
     name: 'Web',
     components: {
       Square
+    },
+    mounted () {
+
+      new window.LeaderLine(
+        document.getElementById('first'),
+        document.getElementById('second'),
+        {
+            color: '#BCB7B7',
+            size: 1,
+            dash: {len: 3, gap: 5},
+            endPlug: 'arrow2',
+            endPlugSize: 3,
+            startLabel: window.LeaderLine.captionLabel({
+              text: 'OTIF',
+              color: '#fff',
+              outlineColor: 'none',
+              fontFamily: 'Open Sans, sans-serif',
+              fontWeight: 700,
+              fontSize: '13px',
+              lineOffset: 100
+            })
+        }
+      );
+
+      new window.LeaderLine(
+        window.LeaderLine.pointAnchor(document.getElementById('first'), {
+          x: '100%',
+          y: 150
+        }),
+        window.LeaderLine.pointAnchor(document.getElementById('fourth'), {
+          x: 0,
+          y: '30%'
+        }),
+          {
+              path: 'grid',
+              color: '#BCB7B7',
+              size: 1,
+              dash: {len: 3, gap: 5},
+              endPlug: 'arrow2',
+              endPlugSize: 3,
+              startLabel: window.LeaderLine.captionLabel({
+                text: 'OTIF',
+                color: '#fff',
+                outlineColor: 'none',
+                fontFamily: 'Open Sans, sans-serif',
+                fontWeight: 700,
+                fontSize: '13px'
+              }),
+              startSocket: 'right',
+              endSocket: 'left',
+              pointAnchor: {x: 50, y: 50}
+          }        
+      );
+
+      
+
+      new window.LeaderLine(
+        document.getElementById('first'),
+        document.getElementById('third'),
+        {
+            color: '#BCB7B7',
+            size: 1,
+            dash: {len: 3, gap: 5},
+            endPlug: 'behind'
+        }
+      );
+
+      new window.LeaderLine(
+        window.LeaderLine.pointAnchor(document.getElementById('third'), {
+          x: '100%',
+          y: '70%'
+        }),
+        window.LeaderLine.pointAnchor(document.getElementById('fourth'), {
+          x: '0%',
+          y: '70%'
+        }),
+        {
+            color: '#BCB7B7',
+            size: 1,
+            dash: {len: 3, gap: 5},
+            endPlug: 'arrow2',
+            endPlugSize: 3,
+            startLabel: window.LeaderLine.captionLabel({
+              text: 'OTIF',
+              color: '#fff',
+              outlineColor: 'none',
+              fontFamily: 'Open Sans, sans-serif',
+              fontWeight: 700,
+              fontSize: '13px'
+            })
+        }
+      );
+
     }
   }
 </script>
