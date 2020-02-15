@@ -45,6 +45,10 @@ h2 {
   padding: 7% 0;
 }
 
+.square p {
+	margin-bottom: 0;
+}
+
 .square p:first-child {
   margin-top: 0;
 }
