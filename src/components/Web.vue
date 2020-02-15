@@ -46,54 +46,109 @@
       Square
     },
     mounted () {
-
-      new window.LeaderLine(
-        window.LeaderLine.pointAnchor(document.getElementById('first'), {
-          x: '100%',
-          y: 75
-        }),
-        window.LeaderLine.pointAnchor(document.getElementById('second'), {
-          x: 0,
-          y: 75
-        }),
-        {
-          color: '#BCB7B7',
-          size: 1,
-          dash: {len: 3, gap: 5},
-          endPlug: 'arrow2',
-          endPlugSize: 3,
-          startLabel: window.LeaderLine.captionLabel({
-            text: 'OTIF',
-            color: '#fff',
-            outlineColor: 'none',
-            fontFamily: 'Open Sans, sans-serif',
-            fontWeight: 700,
-            fontSize: '17px',
-            offset: [35, -70]
+      setTimeout(()=>{
+         this.loadArrows()
+      }, 500)
+    },
+    methods: {
+      loadArrows() {
+          new window.LeaderLine(
+          window.LeaderLine.pointAnchor(document.getElementById('first'), {
+            x: '100%',
+            y: 75
           }),
-          endLabel: window.LeaderLine.captionLabel({
-            text: '63.0%',
-            color: '#E93325',
-            outlineColor: 'none',
-            fontFamily: 'Open Sans, sans-serif',
-            fontWeight: 700,
-            fontSize: '24px',
-            offset: [-90, -50]
-          })
-        }
-      );
-
-      new window.LeaderLine(
-        window.LeaderLine.pointAnchor(document.getElementById('first'), {
-          x: '100%',
-          y: 160
-        }),
-        window.LeaderLine.pointAnchor(document.getElementById('fourth'), {
-          x: 0,
-          y: '30%'
-        }),
+          window.LeaderLine.pointAnchor(document.getElementById('second'), {
+            x: 0,
+            y: 75
+          }),
           {
-            path: 'grid',
+            color: '#BCB7B7',
+            size: 1,
+            dash: {len: 3, gap: 5},
+            endPlug: 'arrow2',
+            endPlugSize: 3,
+            startLabel: window.LeaderLine.captionLabel({
+              text: 'OTIF',
+              color: '#fff',
+              outlineColor: 'none',
+              fontFamily: 'Open Sans, sans-serif',
+              fontWeight: 700,
+              fontSize: '17px',
+              offset: [35, -70]
+            }),
+            endLabel: window.LeaderLine.captionLabel({
+              text: '63.0%',
+              color: '#E93325',
+              outlineColor: 'none',
+              fontFamily: 'Open Sans, sans-serif',
+              fontWeight: 700,
+              fontSize: '24px',
+              offset: [-90, -50]
+            })
+          }
+        );
+
+        new window.LeaderLine(
+          window.LeaderLine.pointAnchor(document.getElementById('first'), {
+            x: '100%',
+            y: 160
+          }),
+          window.LeaderLine.pointAnchor(document.getElementById('fourth'), {
+            x: 0,
+            y: '30%'
+          }),
+            {
+              path: 'grid',
+              color: '#BCB7B7',
+              size: 1,
+              dash: {len: 3, gap: 5},
+              endPlug: 'arrow2',
+              endPlugSize: 3,
+              startLabel: window.LeaderLine.captionLabel({
+                text: 'OTIF',
+                color: '#fff',
+                outlineColor: 'none',
+                fontFamily: 'Open Sans, sans-serif',
+                fontWeight: 700,
+                fontSize: '17px',
+                offset: [35, -60]
+              }),
+              endLabel: window.LeaderLine.captionLabel({
+                text: '20.4%',
+                color: '#E93325',
+                outlineColor: 'none',
+                fontFamily: 'Open Sans, sans-serif',
+                fontWeight: 700,
+                fontSize: '24px',
+                offset: [-90, -190]
+              }),
+              startSocket: 'right',
+              endSocket: 'left',
+              pointAnchor: {x: 50, y: 50}
+            }        
+        );
+
+        new window.LeaderLine(
+          document.getElementById('first'),
+          document.getElementById('third'),
+          {
+            color: '#BCB7B7',
+            size: 1,
+            dash: {len: 3, gap: 5},
+            endPlug: 'behind'
+          }
+        );
+
+        new window.LeaderLine(
+          window.LeaderLine.pointAnchor(document.getElementById('third'), {
+            x: '100%',
+            y: '70%'
+          }),
+          window.LeaderLine.pointAnchor(document.getElementById('fourth'), {
+            x: '0%',
+            y: '70%'
+          }),
+          {
             color: '#BCB7B7',
             size: 1,
             dash: {len: 3, gap: 5},
@@ -109,78 +164,28 @@
               offset: [35, -60]
             }),
             endLabel: window.LeaderLine.captionLabel({
-              text: '20.4%',
-              color: '#E93325',
+              text: '-',
+              color: '#EBB43E',
               outlineColor: 'none',
               fontFamily: 'Open Sans, sans-serif',
               fontWeight: 700,
-              fontSize: '24px',
-              offset: [-90, -190]
+              fontSize: '17px',
+              offset: [-60, -40]
             }),
-            startSocket: 'right',
-            endSocket: 'left',
-            pointAnchor: {x: 50, y: 50}
-          }        
-      );
+          }
+        );
 
-      new window.LeaderLine(
-        document.getElementById('first'),
-        document.getElementById('third'),
-        {
-          color: '#BCB7B7',
-          size: 1,
-          dash: {len: 3, gap: 5},
-          endPlug: 'behind'
-        }
-      );
-
-      new window.LeaderLine(
-        window.LeaderLine.pointAnchor(document.getElementById('third'), {
-          x: '100%',
-          y: '70%'
-        }),
-        window.LeaderLine.pointAnchor(document.getElementById('fourth'), {
-          x: '0%',
-          y: '70%'
-        }),
-        {
-          color: '#BCB7B7',
-          size: 1,
-          dash: {len: 3, gap: 5},
-          endPlug: 'arrow2',
-          endPlugSize: 3,
-          startLabel: window.LeaderLine.captionLabel({
-            text: 'OTIF',
-            color: '#fff',
-            outlineColor: 'none',
-            fontFamily: 'Open Sans, sans-serif',
-            fontWeight: 700,
-            fontSize: '17px',
-            offset: [35, -60]
-          }),
-          endLabel: window.LeaderLine.captionLabel({
-            text: '-',
-            color: '#EBB43E',
-            outlineColor: 'none',
-            fontFamily: 'Open Sans, sans-serif',
-            fontWeight: 700,
-            fontSize: '17px',
-            offset: [-60, -40]
-          }),
-        }
-      );
-
-      new window.LeaderLine(
-        document.getElementById('second'),
-        document.getElementById('fourth'),
-        {
-          color: '#BCB7B7',
-          size: 1,
-          dash: {len: 3, gap: 5},
-          endPlug: 'behind'
-        }
-      );
-
+        new window.LeaderLine(
+          document.getElementById('second'),
+          document.getElementById('fourth'),
+          {
+            color: '#BCB7B7',
+            size: 1,
+            dash: {len: 3, gap: 5},
+            endPlug: 'behind'
+          }
+        );
+      }
     }
   }
 </script>
@@ -204,6 +209,7 @@ h1 {
 
 #wrap {
   width: 566px;
+  height: 750px;
   background-color: #2C2C2C;
   color: #BCB7B7;
   font-family: 'Open Sans', sans-serif;
